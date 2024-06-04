@@ -14,6 +14,14 @@ function App() {
    ];
    // sử dụng hàm usestate để lưu trữ trạng thái dữ liệu
    const [tvcLisrTasks,setLtqListTasks]= useState(ltq_listTasks);
+   const ltqHandleChage=(ltqParam)=>{
+    console.log("App:",ltqParam);
+    setLtqListTasks(prev=>{
+      return{
+        ...prev,
+      }
+    })
+   }
   return (
     <div className="container border">
       <h1> Lê Thanh Quan-K22CNTT2</h1>
@@ -21,7 +29,9 @@ function App() {
       <div>
         {/* Danh sách list task*/}
         <LtqListTask rederLtqListTasks ={ltq_listTasks}/>
-        <LtqTaskAddOrEdit/>
+      </div>
+      <div>
+      <LtqTaskAddOrEdit ltqOnsubmit={ltqHandleSubmit}/>
       </div>
     </div>
   );

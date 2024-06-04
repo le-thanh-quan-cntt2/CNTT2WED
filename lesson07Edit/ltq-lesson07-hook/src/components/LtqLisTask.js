@@ -1,8 +1,19 @@
 import React from 'react'
 
-export default function LtqListTask() {
+export default function LtqListTask({renderLtqListTasks,onLtqEdit,onLtqDelete}) {
     console.log(renderLtqListTasks);
-    // render dât
+    // Hàm xử lý khi sửa
+    const LtqHandleEdit=(param)=>{
+        console.log("click edit:",param);
+        onLtqTaskEdit(param)// Đẩy lên app thông qua props (onLtqTaskEdit)
+
+    }
+    // hàm sử lý khi xóa
+    const LtqHandlDelete=(param)=>{
+        if(window.location.confirm('Bạn có chắc chắn xóa không'))
+        onLtqDelete(param)// Đẩy dữ liệu xóa lên trên app.js
+    }
+    // render data
     let ltqElementTask=renderLtqListTasks.map((task,index)=>{
   return (
     <>
@@ -13,8 +24,12 @@ export default function LtqListTask() {
         <td>{task.ltq_level}</td>
         <td>{task.ltq_level}</td>
         <td>
-            <button className='btn btn-success'>Edit</button>
-            <button className='btn btn-danger'>Remove</button>
+            <button className='btn btn-success'
+            onClick={()=>LtqHandleEdit(task)}
+            >Edit</button>
+            <button className='btn btn-danger'
+            onClick={()=>LtqHandleEdit(task)}
+            >Remove</button>
         </td>
       </tr>
     </>
