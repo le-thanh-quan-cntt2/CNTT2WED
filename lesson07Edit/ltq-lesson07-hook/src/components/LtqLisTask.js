@@ -19,7 +19,7 @@ export default function LtqListTask({renderLtqListTasks,onLtqEdit,onLtqDelete}) 
     <>
       <tr key={index}>
         <td>{index+1}</td>
-        <td>{task.ltq_taskID}</td>
+        <td>{task.ltq_taskId}</td>
         <td>{task.ltq_taskName}</td>
         <td>{task.ltq_level}</td>
         <td>{task.ltq_level}</td>

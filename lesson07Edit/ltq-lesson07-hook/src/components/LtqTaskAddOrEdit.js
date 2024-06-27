@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 
-export default function LtqTaskAddOrEdit() {
+export default function LtqTaskAddOrEdit({renderLtqTask, renderLtqIsAddOrEdit,ltqOnSubmit}) {
     // Đối tượng task
-    const ltqTaskobj ={ 
-        ltq_taskId:0, 
-        ltq_taskName:"",
-        ltq_level:""
+   // const ltqTaskobj ={ 
+       // ltq_taskId:0, 
+      //  ltq_taskName:"",
+      //  ltq_level:""
     }
     
     const [ltqTask,setLtqTask]=useState(ltqTaskobj);
+    useState(()=>{
+
+    },[renderLtqTask])
+
+    // Taoh tiêu đề form
+    const ltqTieude=renderLtqIsAddOrEdit==true?"Thêm mới task":"Sủa thông tin task";
     // Hàm sử lý sự lý sự kiện thay đổi trên điều kiện
     const ltqHandleChage=(ltqEvent)=>{
         let name = ltqEvent.target.name;
@@ -23,23 +29,22 @@ export default function LtqTaskAddOrEdit() {
     }
     const ltqHandleSubmit=(ltqEvent)=>{
         ltqEvent.preventDefault();
-        ltqOnSubmit(ltqTask);
     }
   return (
     <div>
       <h2>Thêm mới task</h2>
       <form>
-        <div class="input-group mb-3"> 
-        <span class="input-group-text" id="basic-addon1">Task ID</span>
+        <div className="input-group mb-3"> 
+        <span className="input-group-text" id="basic-addon1">Task ID</span>
         <input type="text"
            name='ltq_taskId' value={ltqTask.ltq_taskIdƯ} onChange={ltqHandleChage}
-           class='form-control' placeholder="Username" aria-lable="Usernamr" aria-aria-describedby="basic-addon1">
+           class='form-control' placeholder="Username" aria-lable="Usernamr" aria-aria-describedby="basic-addon1"/>
         </div>
-        <div class="input-group mb-3"> 
+        <div className="input-group mb-3"> 
         <span class="input-group-text" id="basic-addon1">Task ID</span>
         <input type="text"
            name='ltq_taskId' value={ltqTask.ltq_taskIdƯ} onChange={ltqHandleChage}
-           class='form-control' placeholder="Username" aria-lable="Usernamr" aria-aria-describedby="basic-addon1">
+           className='form-control' placeholder="Username" aria-lable="Usernamr" aria-aria-describedby="basic-addon1"/>
             <lable>Tas ID</lable>
             <input name='ltq_TaskId' value={ltqTask.ltq_taskId} onChange={'ltqHandleChage'}></input>
         </div>
@@ -59,6 +64,7 @@ export default function LtqTaskAddOrEdit() {
                 <option value={'Small'}>Small</option>
             </select>
         </div>
+      
         <button onClick={ltqHandleSubmit}>Ghi lại</button>
       </form>
     </div>
