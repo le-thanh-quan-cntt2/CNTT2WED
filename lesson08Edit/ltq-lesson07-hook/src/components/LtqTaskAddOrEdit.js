@@ -68,5 +68,5 @@ export default function LtqTaskAddOrEdit({renderLtqTask, renderLtqIsAddOrEdit,lt
         <button onClick={ltqHandleSubmit}>Ghi lại</button>
       </form>
     </div>
-  )
+  );
 }

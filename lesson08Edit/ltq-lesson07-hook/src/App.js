@@ -52,7 +52,11 @@ function App() {
     const filteredTasks = ltqListTasks.filter((task) => task.ltq_taskId !== param.ltq_taskId);
     setLtqListTasks(filteredTasks);
   };
-
+  
+  const handleAdd = ()=>{
+    setTvcTask(tvcTaksObj);
+    setTvcIsAddOrEdit(true);
+  }
   return (
     <div className="container border">
       <h1>Lê Thanh Quan-K22CNTT2</h1>
@@ -65,6 +69,7 @@ function App() {
           onLtqDelete={handleDelete}
         />
       </div>
+      <button onClick={handleAdd}> Thêm mới </button>
       <div>
         <LtqTaskAddOrEdit
           renderLtqTask={ltqTask}
